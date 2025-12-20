@@ -42,3 +42,8 @@ console.log(primeiroNome + " " + segundoNome)
 
 //Comparasion Operators
 console.log(ageBruno > ageAna)
+
+//20 - Type Conversion and Coercion
+console.log("-----------20 - Type Conversion and Coercion--------------")
+const ano = '2025'
+console.log(ano + 2)
