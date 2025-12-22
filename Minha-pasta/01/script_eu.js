@@ -130,3 +130,21 @@ if(numero === 6) console.log("Você usou o Operator ===");
 novoNumero = Number(numero)
 if(novoNumero === 6) console.log("Você usou o Operator ===");
 else if(novoNumero !== 6) {console.log("Você usou o Operator === e o4 número é diferente de 6");}
+
+// 24 - Logical Operators
+console.log("-----------24 - Logical Operators --------------")
+
+let sentence1 = false;
+let sentence2 = true;   
+
+console.log("Você escolheu: ", sentence1, sentence2)
+
+console.log("Logical Operator - AND: ", sentence1 && sentence2) //and
+console.log("Logical Operator - OR: ", sentence1 || sentence2) //or
+console.log("Logical Operator - NOT sentence1: ", !sentence1) //Not
+
+if (sentence1 && sentence2) {
+    console.log("VERDADE")
+} else {
+    console.log("FALSO")
+}
