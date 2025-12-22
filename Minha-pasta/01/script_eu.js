@@ -148,3 +148,35 @@ if (sentence1 && sentence2) {
 } else {
     console.log("FALSO")
 }
+
+// 26 - The Switch Statement
+console.log("-----------26 - The Switch Statement --------------")
+
+let dia = prompt("Escolha um dia")
+
+switch(dia){
+    case 'segunda-feira':
+        console.log("Semana vai ser dura!")
+        break;
+    case 'terça-feira':
+        console.log("Vai trabalhar vagabundo")
+        break;
+    case 'quarta-feira':
+        console.log("Tenha fé! Continue firme...")
+        break;
+    case 'quinta-feira':
+        console.log("Tá chegando o fds")
+        break;
+    case 'sexta-feira':
+        console.log("Sextou!!")
+        break;
+    case 'sábado':
+        console.log("Vai descansar..")
+        break;
+    case 'domingo':
+        console.log("Até segunda e um beijo na bunda")
+        break;
+    default:
+        console.log("Dia inválido!")
+
+}
