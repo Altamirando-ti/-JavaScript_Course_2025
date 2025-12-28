@@ -73,3 +73,32 @@ else{
     console.log("Nobody wins!")
 }
 
+//---------- Challenge#3----------
+console.log("-----------26 - The Switch Statement --------------")
+
+let dia = prompt("Escolha um dia")
+
+if(dia === 'segunda-feira'){
+    console.log("Semana vai ser dura!")
+}
+else if(dia === 'terça-feira'){
+    console.log("Semana vai ser dura!")
+}
+else if(dia === 'quarta-feira'){
+    console.log("Tenha fé! Continue firme...")
+}
+else if(dia === 'quinta-feira'){
+    console.log("Tá chegando o fds")
+}
+else if(dia === 'sexta-feira'){
+    console.log("Sextou!!")
+}
+else if(dia === 'sábado'){
+    console.log("Vai descansar..")
+}
+else if(dia === 'domingo'){
+    console.log("Até segunda e um beijo na bunda")
+}
+else{
+    console.log("Dia inválido!")
+}
