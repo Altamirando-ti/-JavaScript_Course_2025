@@ -102,3 +102,26 @@ else if(dia === 'domingo'){
 else{
     console.log("Dia inválido!")
 }
+
+//---------- Challenge#4----------
+console.log("---------- Challenge#4----------")
+
+let bill = Number(prompt("Digite o valor da conta:"))
+console.log(bill)
+
+let tip;
+
+// if(bill >= 50 && bill <=300){
+//     tip = (15/100)*bill
+//     console.log(`O valor do gorjeta é de ${tip}`)
+// }
+// else if(bill<50 || bill>300){
+//     tip = (20/100)*bill
+//     console.log(`O valor do gorjeta é de ${tip}`)
+// }
+// else console.log("Não foi possível calcular o valor da gorjeta.");
+
+//Ternary Operator
+tip = bill >=50 && bill <=300 ? bill * 15/100 : bill * 20/100;
+// console.log(`O valor do gorjeta é de ${tip}`)
+console.log(`O valor da conta é de ${bill} e o valor da gorjeta é de ${tip} sendo o total a pagar de ${tip + bill}`)
