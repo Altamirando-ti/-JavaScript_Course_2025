@@ -46,10 +46,19 @@ function calcIdade(dataNasc){
 
 
 //Function Expression ou Anonimous Function
-const dataNascimento2 = Number(prompt("Qual a sua data de nascimento?"))
-console.log(`A idade do fulano é ${calcIdade2(dataNascimento2)} por Anonimous function`)
 
 const calcIdade2 = function(dataNasc){
     return 2026 - dataNasc;
 }
+const dataNascimento2 = Number(prompt("Qual a sua data de nascimento?"))
+console.log(`A idade do fulano é ${calcIdade2(dataNascimento2)} por Anonimous function`)
+// Em uma Anonimous function a função deve estar antes do argumento que a chama. 
+// Isso não é necessário em function expression
+//Caso contrário recebe a seguinte mensagem: Cannot access 'calcIdade2' before initialization
 
+//----------- 36 - Arrow Functions ---------------
+console.log('----------- 36 - Arrow Functions ---------------')
+const calcIdade3 = Variavel => 2026 - Variavel
+console.log(calcIdade3(1988))
+const dataNascimento3 = Number(prompt("Qual a sua data de nascimento?"))
+console.log(`A idade do fulano é ${calcIdade3(dataNascimento3)} por Arrow function`)
