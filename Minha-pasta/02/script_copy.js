@@ -34,8 +34,9 @@ console.log(suco(5, 6))
 
 //----------- 35 - Function Declarations vs. Expressions ---------------
 console.log('----------- 35 - Function Declarations vs. Expressions ---------------')
+/*
 
-//Function declaration
+//Function declaration ou simplesmente Function
 const dataNascimento = Number(prompt("Qual a sua data de nascimento?"))
 console.log(`A idade do fulano é ${calcIdade(dataNascimento)} por Function declaration`)
 
@@ -43,7 +44,7 @@ function calcIdade(dataNasc){
     // const idade = 2026 - dataNasc;
     return 2026 - dataNasc;
 }
-
+ 
 
 //Function Expression ou Anonimous Function
 
@@ -55,10 +56,72 @@ console.log(`A idade do fulano é ${calcIdade2(dataNascimento2)} por Anonimous f
 // Em uma Anonimous function a função deve estar antes do argumento que a chama. 
 // Isso não é necessário em function expression
 //Caso contrário recebe a seguinte mensagem: Cannot access 'calcIdade2' before initialization
+*/
 
 //----------- 36 - Arrow Functions ---------------
 console.log('----------- 36 - Arrow Functions ---------------')
+
+/*
 const calcIdade3 = Variavel => 2026 - Variavel
 console.log(calcIdade3(1988))
 const dataNascimento3 = Number(prompt("Qual a sua data de nascimento?"))
 console.log(`A idade do fulano é ${calcIdade3(dataNascimento3)} por Arrow function`)
+*/
+//Testando
+const teste = abc => abc + 5;
+
+//teste2
+const anosAposentar = (dataNiver,nome) => {
+    const anos = 2026 - dataNiver;
+    console.log(teste(5))
+    dataNiver = 65 - anos;
+    return `${nome} aposenta daqui ${dataNiver} anos`
+}
+console.log(anosAposentar(1988,'Altamirando'))
+
+//----------- 37 - Functions Calling Another Functions ---------------
+console.log('----------- 37 - Functions Calling Another Functions ---------------')
+
+const cortarFruta = fruta => fruta*4;// arrow function
+
+function suco2(nMaca, nLaranja){
+    console.log(nMaca,nLaranja)
+    const pedacosMaca = cortarFruta(nMaca);
+    const pedacosLaranja = cortarFruta(nLaranja);
+    let sucoPronto = `Seu suco possui ${pedacosMaca} pedaços de maçãs e ${pedacosLaranja} pedaços de laranjas`
+    return sucoPronto;
+}
+suco2(2, 3);
+console.log(suco2(5, 6))
+
+//----------- 38 - Review Functions ---------------
+console.log('----------- 38 - Review Functions ---------------')
+
+const MayIretire = function(birthYear, gender){
+    if(gender === 'man'){
+        const diference = 65 - age(birthYear)
+        if(diference >0){
+        console.log(`Sorry!Homens se aposentam com 65 anos de idade Ainda faltam ${diference} anos para você aposentar.`);
+        return diference;
+        }else{
+        console.log('Congratulations! Você já pode se aposentar.')
+        return diference;
+        }
+    }else if(gender === 'woman'){
+        const diference = 62 - age(birthYear)
+        if(diference >0){
+        console.log(`Sorry!Mulheres se aposentam com 62 anos de idade. Ainda faltam ${diference} anos para você aposentar.`);
+        return diference;
+        }else{
+        console.log('Congratulations! Você já pode se aposentar.')
+        return diference;
+        }
+    } else console.log('Opção inválida!')
+    
+    
+}
+console.log(MayIretire(1950,'woman'));
+
+function age(birthYear){
+    return 2026 - birthYear;
+}
