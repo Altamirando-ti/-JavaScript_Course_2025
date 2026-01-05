@@ -125,3 +125,39 @@ console.log(MayIretire(1950,'woman'));
 function age(birthYear){
     return 2026 - birthYear;
 }
+
+//----------- 40 e 41 - Arrays ---------------
+console.log('----------- 40 e 41 - Arrays ---------------')
+//Array[value1, value2, ...]
+const array1 = ['Fulano', 28, suco2(4, 5)]
+console.log(array1)
+
+const array2 = new Array('S', 15, 35-5)
+console.log(array2)
+
+// ----Add Elements
+//push() - acrescenta no final no array/matriz
+array1.push('Aguardando')
+console.log(array1)
+//unshift() - acrescenta no início
+array2.unshift('K')
+console.log(array2)
+//-----Remove Elements
+//pop() - remove o último elemento
+array1.pop();
+console.log(array1)
+//shift() - remove o primeiro elemento
+array2.shift()
+console.log(array2)
+//---- Verify elements
+//index() - mostra o indice do elemento no array
+console.log(array1.indexOf('Fulano'))
+console.log(array1.indexOf(28))
+console.log(array1.indexOf(20))// -1 (Não existe)
+//includes() - True or false se existe o elemento
+console.log(array2.includes('S'))
+console.log(array2.includes(30))
+console.log(array2.includes('30'))
+
+if(array1.includes('Fulano')) console.log("Fulano está presente no array")
+else if(array1.includes('Cicrano')) console.log("Cicrano está presente no array")
