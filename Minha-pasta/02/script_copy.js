@@ -203,3 +203,55 @@ console.log(altaObject)
 //"Altamirando possui 3 cachorros, e ele trabalha como professor"
 
 console.log(`${altaObject.firstName} possui ${altaObject.dogs.length} cachorros, e ele trabalha como ${altaObject['job']}. O cachorro mais pilantrinha é o ${altaObject.dogs[0]}.`)
+
+//----------- 45 - Object Methods ---------------
+console.log('----------- 45 - Object Methods ---------------')
+
+const altaObject2 = {
+    firstName:'Altamirando',
+    lastName:'Neto',
+    anoNascimento:1988,
+    job:'Professor',
+    dogs:['Brad', 'Lennon', 'Baran'],
+    carteiraMotorista: true,
+    //toda função dentro de um objeto é um método!
+
+    // calcIdade: function(x){
+    //     return 2025 - x;
+    // } 
+
+    // calcIdade: function(){
+    //     // console.log(this)
+    //     return 2025 - this.anoNascimento;
+    // }
+
+    calcIdade: function(){
+        this.age = 2025 - this.anoNascimento; // salvando o resultado em uma nova propriedade do objeto
+        return this.age;
+    }
+    
+}
+// console.log(altaObject2.calcIdade(1988)) //Não é recomendável repetir valores
+console.log(altaObject2.calcIdade()) //usando .this
+console.log(altaObject2.age)// acessando o valor da propriedade criada sem precisar calcular novamente
+
+//Desafio2 
+//"Altamirando tem 37 anos de idade, trabalha como professor e (pode / não pode) dirigir"
+
+const altaObject3 = {
+    firstName:'Altamirando',
+    lastName:'Neto',
+    anoNascimento:1988,
+    job:'professor',
+    dogs:['Brad', 'Lennon', 'Baran'],
+    carteiraMotorista: true,
+    calcIdade: function(){
+        this.age = 2025 - this.anoNascimento; // salvando o resultado em uma nova propriedade do objeto
+        return this.age;
+    },
+    licenceMethod: function(){
+        if(this.carteiraMotorista) return 'pode dirigir';
+        else return 'não pode dirigir';
+    }
+}
+console.log(`${altaObject3.firstName} tem ${altaObject3.calcIdade()} anos de idade, trabalha como ${altaObject3.job} e ${altaObject3.licenceMethod()}.`)
