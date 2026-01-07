@@ -161,3 +161,45 @@ console.log(array2.includes('30'))
 
 if(array1.includes('Fulano')) console.log("Fulano está presente no array")
 else if(array1.includes('Cicrano')) console.log("Cicrano está presente no array")
+
+//----------- 43 - Introduction to Objects ---------------
+console.log('----------- 43 - Introduction to Objects ---------------')
+const altaArray = [
+    'Altamirando',
+    'Neto',
+    2025 - 1988,
+    'Professor',
+    ['Brad', 'Lennon', 'Baran']
+]
+console.log(altaArray)
+
+const altaObject = {
+    firstName:'Altamirando',
+    lastName:'Neto',
+    age: 2025 - 1988,
+    job:'Professor',
+    dogs:['Brad', 'Lennon', 'Baran']    
+}
+console.log(altaObject)
+
+//----------- 44 - Dot . vc Bracket[] Notation --------------- // Como recuperar os dados do objeto
+console.log('----------- 44 - Dot . vc Bracket[] Notation ---------------')
+
+console.log(altaObject.firstName)
+console.log(altaObject['firstName'])
+const nome = 'Name'
+console.log(altaObject['first' + nome]) // só é possível concatenar com []
+
+const pergunte = prompt('O que você deseja saber sobre mim? Escolha entre as seguintes opções: firstName, lastName, age, job, dogs.' )
+// console.log(altaObject[pergunte]) //só é possível com []
+if(altaObject[pergunte]) console.log(altaObject[pergunte])
+else console.log('Escolha errada! Escolha entre as seguintes opções: firstName, lastName, age, job, dogs.') 
+
+altaObject.location = 'Uberlândia';
+altaObject['email'] = 'altamirando@gmail.com';
+console.log(altaObject)
+
+//Desafio 
+//"Altamirando possui 3 cachorros, e ele trabalha como professor"
+
+console.log(`${altaObject.firstName} possui ${altaObject.dogs.length} cachorros, e ele trabalha como ${altaObject['job']}. O cachorro mais pilantrinha é o ${altaObject.dogs[0]}.`)
