@@ -47,3 +47,34 @@ console.log(`O valor da conta é de ${bills[2]} e o valor da gorjeta é de ${cal
 
 let arrayTotal = new Array(calcTip(bills[0]) + bills[0], calcTip(bills[1]) + bills[1],calcTip(bills[2]) + bills[2])
 console.log(arrayTotal)
+
+
+//----------- Challenge 3 - Part 2 ---------------
+console.log('----------- Challenge 3 - Part 2 ---------------')
+
+const mark = {
+    name: 'Mark Miller',
+    mass: 78,
+    height: 1.69,
+    calcBMI: function(){
+        this.bmi = (this.mass) / (this.height)**2;
+        return this.bmi;
+    }
+}
+
+const john = {
+    name: 'John Smith',
+    mass: 92,
+    height: 1.95,
+    calcBMI: function(){
+        this.bmi = (this.mass) / (this.height)**2;
+        return this.bmi;
+    }
+}
+
+console.log(`${mark.name}'s BMI is: ${mark.calcBMI()}`)
+console.log(`${john.name}'s BMI is: ${john.calcBMI()}`)
+
+if(mark.bmi > john.bmi) console.log(`${mark.name}'s BMI (${mark.calcBMI()}) is higher than ${john.name}'s (${john.calcBMI()})`)
+else if(mark.bmi < john.bmi) console.log(`${mark.name}'s BMI (${mark.calcBMI()}) is higher than ${john.name}'s (${john.calcBMI()})`)
+else console.log('Informações inválidas.')    
