@@ -255,3 +255,60 @@ const altaObject3 = {
     }
 }
 console.log(`${altaObject3.firstName} tem ${altaObject3.calcIdade()} anos de idade, trabalha como ${altaObject3.job} e ${altaObject3.licenceMethod()}.`)
+
+//----------- 47 e 48 - Iteration, arrays, breaking and continuing ---------------
+console.log('----------- 47 e 48 - Iteration, arrays, breaking and continuing ---------------')
+
+const altaArray2 = [
+    'Altamirando',
+    'Neto',
+    2025 - 1988,
+    'Professor',
+    ['Brad', 'Lennon', 'Baran'],
+    true
+]
+console.log('altaArray2',altaArray2);
+for(let i = 0; i< altaArray2.length; i++){
+    console.log(altaArray2[i],typeof altaArray2[i])
+}
+const types = []
+
+for(let j = 0; j< altaArray2.length; j++){
+    types.push(altaArray2[j])
+}
+console.log('types array',types)
+
+//outro exemplo
+const nascimento = [1988, 2007, 1969, 1948];
+const idade = [];
+
+for(let i=0; i<nascimento.length; i++){
+    // idade[i] = 2025- nascimento[i];
+    idade.push(2025- nascimento[i]);
+}
+console.log(idade)
+
+// Continue for iteration : termina a iteração e passa para a próxima
+console.log("---Continue for iteration com igual ---")
+for(let i = 0; i< altaArray2.length; i++){
+    if (typeof altaArray2[i] === 'string') continue; // Se for igual a 'string' passa para o próximo. Ou seja, tudo que não seja string
+    console.log(altaArray2[i],typeof altaArray2[i])
+}
+console.log("---Continue for iteration com diferente ---")
+for(let i = 0; i< altaArray2.length; i++){
+    if (typeof altaArray2[i] !== 'string') continue; // Parece confuso, mas se for diferente de 'string' passa para o próximo. Ou seja, só string passa
+    console.log(altaArray2[i],typeof altaArray2[i])
+}
+// teste
+console.log("----teste---")
+for(let i = 0; i< altaArray2.length; i++){
+    if (typeof altaArray2[i] === 'string')
+    console.log(altaArray2[i],typeof altaArray2[i])
+}
+
+// Break for loops : termina o loop e passa para a próxima
+console.log("---- Break for loops ---")
+for(let i = 0; i< altaArray2.length; i++){
+    if (typeof altaArray2[i] === 'number') break;
+    console.log(altaArray2[i],typeof altaArray2[i])
+}
