@@ -312,3 +312,33 @@ for(let i = 0; i< altaArray2.length; i++){
     if (typeof altaArray2[i] === 'number') break;
     console.log(altaArray2[i],typeof altaArray2[i])
 }
+
+//----------- 50 - While Loop ---------------
+console.log('----------- 50 - While Loop ---------------')
+for (let rep =1; rep<=10; rep++){
+    console.log(`For repetition ${rep}`)
+}
+//while loop
+let rep=1;
+while(rep<=10){
+    console.log(`While repetition ${rep}`);
+    rep ++;
+}
+// While loop pode ser usado quando não se sabe quantas iterações serão necessárias para se chegar a um resultado desejado
+// Roll dice
+
+let dice = Math.trunc(Math.random()*6+1);// trunc() tira a parte decimal
+// console.log(dice)
+while(dice !==6){
+    console.log(`Você jogou o dado e saiu o número ${dice}`);
+    dice = Math.trunc(Math.random()*6+1);
+}
+
+//Alternativa para o while loop usando o for
+let dado = Math.floor(Math.random()*6+1);// floor arrendonda para baixo
+console.log(dado)
+for(let i=1; i<=20;i++){
+    console.log(i, dado)
+    if(dado === 6) {break}
+    dado = Math.floor(Math.random()*6+1);
+}
