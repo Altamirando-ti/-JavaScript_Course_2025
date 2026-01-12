@@ -78,3 +78,51 @@ console.log(`${john.name}'s BMI is: ${john.calcBMI()}`)
 if(mark.bmi > john.bmi) console.log(`${mark.name}'s BMI (${mark.calcBMI()}) is higher than ${john.name}'s (${john.calcBMI()})`)
 else if(mark.bmi < john.bmi) console.log(`${mark.name}'s BMI (${mark.calcBMI()}) is higher than ${john.name}'s (${john.calcBMI()})`)
 else console.log('Informações inválidas.')    
+
+//----------- Challenge 4 - Part 2 ---------------
+console.log('----------- Challenge 4 - Part 2 ---------------')
+// let bill = Number(prompt("Digite o valor da conta:"))
+let bill2 = [22, 295, 176, 440, 37, 105, 10, 1100, 86, 52]
+// console.log(bill2.length)
+
+let tips2 = []
+let totals = []
+
+let calcTip2 = function(x){
+    let tip = x >=50 && x <=300 ? x * 15/100 : x * 20/100;
+    return tip;
+}
+
+for(let i=0; i< bill2.length; i++){
+    // console.log(calcTip2(bill2[i]))   
+    tips2.push(calcTip2(bill2[i]));
+    totals.push(bill2[i]+tips2[i])
+}
+
+console.log(tips2);
+console.log(totals)
+
+// let calculationTip2 = calcTip2(bill2)
+// console.log(`O valor da conta é de ${bill2} e o valor da gorjeta é de ${calculationTip2} sendo o total a pagar de ${calculationTip2 + bill2}`)
+
+//-------Bonus------
+// let sum =0;
+// for(let i = 0; i <= 10; i ++ ){
+//     sum = sum + i;
+// }
+// console.log(sum)    
+
+function calcAverage2 (arr){
+    // let avg = (arr[0] + arr[1])/(arr.length);
+    let sum = 0;
+    for(let i = 0; i < arr.length; i ++ ){
+    sum = sum + arr[i];
+    }
+    return sum/(arr.length);
+}
+const array =[1,2,3,4,10]
+console.log(array.length)
+console.log(`A média dos valores do array é ${calcAverage2(array)}`)
+
+// Utilizando esta função para o cálculo da media do arry totals
+console.log(`A média dos valores do array é ${calcAverage2(totals)}`)
