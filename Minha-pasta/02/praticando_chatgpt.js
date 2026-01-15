@@ -183,3 +183,33 @@ Um método calcularMedia() que:
 Calcule e retorne a média das notas
 */ 
 console.log('----- 10) Crie um objeto aluno ---------')
+const aluno = {
+    nome: 'Carlos',
+    // notas : [7, 8, 9.5, 4, 3, 6],
+    // notas : [10, 10, 10, 10],
+    // //Função cria notas
+
+    disciplinas : ['Matemática', 'Português', 'História', 'Geografia', 'Inglês'],
+    // disciplinas : ['Matemática', 'Português', 'História', 'Geografia', 'Inglês', 'Ed. Física', 'Filosofia', 'Sociologia'],
+    notasRandom: function(){
+        const notas = [];
+        const nMaterias = this.disciplinas.length //
+        for(let j=0; j< nMaterias; j++){ // loop cria uma notas com números randômicos
+            notas.push(Math.trunc(Math.random()*10))
+        }
+        this.notas = notas;
+        return this.notas;
+    },
+
+    calcularMedia: function(){
+        let sum = 0;
+        for(let i=0; i<this.notas.length; i++){
+            sum = sum + this.notas[i];
+        }
+        return sum/(this.notas.length);
+    }
+}
+console.log(aluno)// visualizar o objeto
+console.log(aluno.disciplinas)
+console.log(aluno.notasRandom())// visualizar a propriedade do objeto criada a partir do próprio'' método
+console.log(`A média das notas é ${aluno.calcularMedia(aluno.notasRandom())}`)
