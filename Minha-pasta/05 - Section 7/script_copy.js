@@ -17,9 +17,8 @@
 // Criar número aleatóio
 let secretNumber = Math.trunc(Math.random() * 20) + 1;
 
-let score = 5;
-
-document.querySelector(".between20").textContent = score;
+let score = 10;
+let highScore = 0;
 
 //-------Lógica do professor
 
@@ -56,26 +55,35 @@ document.querySelector(".between20").textContent = score;
 //   }
 // });
 
-
 //-------Minha lógica
 document.querySelector(".check").addEventListener("click", function () {
   const guess = Number(document.querySelector(".guess").value);
   // debugger;
   if (score > 1) {
-    if (!guess) //Caso não tenha sido inserido número
+    if (!guess)
+      //Caso não tenha sido inserido número
       document.querySelector(".message").textContent = "No number inserted!";
-    else if (guess === secretNumber) { //Quando vence
+    else if (guess === secretNumber) {
+      //Quando vence
       document.querySelector(".message").textContent =
         "Você acertou!Numero correto.";
       document.querySelector(".number").textContent = secretNumber;
-      document.querySelector('body').style.backgroundColor ='#60b347'
-      document.querySelector('.number').style.width = '30rem'
-      document.querySelector('.number').style.fontSize = '10rem'
-    } else if (guess > secretNumber) {//Quando o chute é alto
+      document.querySelector("body").style.backgroundColor = "#60b347";
+      document.querySelector(".number").style.width = "30rem";
+      document.querySelector(".number").style.fontSize = "10rem";
+      // contagem do highScore
+      if (score > highScore) {
+        highScore = score;
+        document.querySelector(".highscore").textContent = highScore;
+      }
+      
+    } else if (guess > secretNumber) {
+      //Quando o chute é alto
       document.querySelector(".message").textContent = "Chute alto.Try again!";
       score--;
       document.querySelector(".score").textContent = score;
-    } else if (guess < secretNumber) { //Quando o chute é baixo
+    } else if (guess < secretNumber) {
+      //Quando o chute é baixo
       document.querySelector(".message").textContent = "Chute baixo.Try again!";
       score--;
       document.querySelector(".score").textContent = score;
@@ -97,11 +105,11 @@ Implement a game rest funcionality, so that the player can make a new guess! Her
 4. Also restore the original background (#222) and number width (15rem)
 */
 
-//Minha resolução
+//Minha resolução challenge 1 video 80
 document.querySelector(".again").addEventListener("click", () => {
   //------------
   secretNumber = Math.trunc(Math.random() * 20) + 1;
-  score = 5;
+  score = 10;
 
   document.querySelector(".message").textContent = "Start guessing...";
   document.querySelector(".score").textContent = score;
