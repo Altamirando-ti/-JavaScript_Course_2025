@@ -1,0 +1,76 @@
+/* RESET BÁSICO */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #f2f2f2;
+}
+
+/* BOTÃO PRINCIPAL */
+button {
+  padding: 12px 20px;
+  font-size: 16px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  background-color: #4f46e5;
+  color: #fff;
+}
+
+button:hover {
+  opacity: 0.9;
+}
+
+/* OVERLAY DO MODAL */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+
+  /* Modal começa escondido */
+  display: none;
+  justify-content: center;
+  align-items: center;
+}
+
+/* MODAL */
+.modal {
+  background-color: #ffffff;
+  padding: 20px;
+  width: 320px;
+  border-radius: 8px;
+  text-align: center;
+  position: relative;
+}
+
+.modal h2 {
+  margin-bottom: 10px;
+}
+
+.modal p {
+  color: #555;
+}
+
+/* BOTÃO FECHAR */
+.close-btn {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: transparent;
+  color: #333;
+  font-size: 18px;
+  cursor: pointer;
+}
+
+/* CLASSE QUE VOCÊ VAI CONTROLAR PELO JS */
+.active {
+  display: flex;
+}
