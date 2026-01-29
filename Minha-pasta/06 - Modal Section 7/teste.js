@@ -15,4 +15,4 @@ btnOpenModal.addEventListener('click', function(){
 btnCloseModal.addEventListener('click', function(){
     modalOverlay.classList.remove('active');
     // modalOverlay.style.display = 'none'
-})  
+})

@@ -36,3 +36,29 @@ function closeModal(){
 btnCloseModal.addEventListener('click', closeModal)
 
 overlay.addEventListener('click', closeModal)
+
+// Evento acionado quando apertado alguma tecla
+document.addEventListener('keydown', function(){
+    // console.log('Tecla pressionada!');
+})
+
+// passando a tecla pressionada, ou seja, o evento como argumento da função em forma de objeto(e) 
+// document.addEventListener('keydown', function(e){
+//     // console.log(e);
+//     console.log(e.key);
+// })
+
+// Ao apertar teclas
+document.addEventListener('keydown', function(e){
+    // if(e.key === 'Escape') console.log('A tecla Esc foi pressionada!');
+    console.log(e.key);
+    // if(e.key === 'Escape') {
+    //     if(!modal.classList.contains('hidden')){
+    //         console.log('Agora contém hidden');
+    //         closeModal();
+    //     }
+    // }
+    // refatorei as linhas em comentário acima para somente a linha abaixo
+    if(e.key === 'Escape' && !modal.classList.contains('hidden')) closeModal();
+});
+
