@@ -61,6 +61,34 @@ const inputLoanAmount = document.querySelector('.form__input--loan-amount');
 const inputCloseUsername = document.querySelector('.form__input--user');
 const inputClosePin = document.querySelector('.form__input--pin');
 
+// ------ 154 - Creating DOM Elements ------
+console.log('------ 154 - Creating DOM Elements ------')
+const mostrarMovimentacao = function(arg){
+  containerMovements.innerHTML = ''; //limpa o containerMovements antes de inserir os elementos
+  // console.log(containerMovements.innerHTML)
+  //ou
+  // containerMovements.textContent = '';
+  // console.log(containerMovements.textContent)
+
+  arg.forEach(function(value, index){
+    // console.log(value,index)
+    const type = value > 0 ? 'deposit' : 'withdrawal'
+    const constHtml = ` 
+      <div class="movements__row">
+          <div class="movements__type movements__type--${type}">${index + 1} ${type}</div>
+          // <div class="movements__date">3 days ago</div>
+          <div class="movements__value">${value}€</div>
+      </div>
+    `
+    containerMovements.insertAdjacentHTML('afterbegin',constHtml)
+    // containerMovements.insertAdjacentHTML('beforeend',constHtml)
+
+
+    // console.log(containerMovements.innerHTML)
+  })
+}
+
+mostrarMovimentacao(account1.movements)
 /////////////////////////////////////////////////
 /////////////////////////////////////////////////
 // LECTURES
@@ -82,6 +110,25 @@ for(const movimentacao of movements){
   cl(movimentacao)
 }
 cl('---- usando forEach ----')
-movements.forEach((transacao)=>{
-  cl(transacao)
+movements.forEach((value, index, array)=>{
+  cl(value, index, array)
+  // cl(value)
+
 })
+
+// agora usando uma condicional como no exemplo
+movements.forEach(function(mov){
+  if (mov > 0) cl(`Depósito de ${mov}`)
+  else cl(`Retirada de ${Math.abs(mov)}`)
+})
+
+// ------ 152 - ForEach with maps and sets ------
+cl('------ 152 - ForEach with maps and sets ------')
+//Maps
+currencies.forEach(function(value, index, array){
+  cl(value, index, array)
+})
+
+const numbers = [1, 2, 2, 3, 4, 4, 4, 5];
+const uniqueNumbers = new Set(numbers);
+cl(uniqueNumbers, uniqueNumbers.size)

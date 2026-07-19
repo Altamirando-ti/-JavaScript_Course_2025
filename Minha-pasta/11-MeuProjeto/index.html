@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Meu Projeto</title>
+      <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="extrato-container">
+        <!-- Cabeçalho institucional simples -->
+        <div class="extrato-header">
+            <h1>Extrato de Conta Corrente</h1>
+            <p>Período: Últimos 7 dias</p>
+        </div>
+
+        <!-- Tabela do Extrato -->
+        <table class="tabela-extrato">
+            <thead>
+                <tr>
+                    <th>Data</th>
+                    <th>Descrição</th>
+                    <th>Categoria</th>
+                    <th class="text-right">Valor (R$)</th>
+                </tr>
+            </thead>
+            <tbody class="container-tabelaDados">
+                <tr>
+                    <td>15 Jul 2026</td>
+                    <td>Pix Recebido - João Silva</td>
+                    <td><span class="categoria">Transferência</span></td>
+                    <td class="text-right entrada">+ 150,00</td>
+                </tr>
+                <tr>
+                    <td>14 Jul 2026</td>
+                    <td>Supermercado Pão de Açúcar</td>
+                    <td><span class="categoria">Alimentação</span></td>
+                    <td class="text-right saida">- 243,50</td>
+                </tr>
+                <!-- <tr>
+                    <td>12 Jul 2026</td>
+                    <td>Posto Ipiranga Combustíveis</td>
+                    <td><span class="categoria">Transporte</span></td>
+                    <td class="text-right saida">- 80,00</td>
+                </tr>
+                <tr>
+                    <td>11 Jul 2026</td>
+                    <td>Assinatura Netflix</td>
+                    <td><span class="categoria">Lazer</span></td>
+                    <td class="text-right saida">- 55,90</td>
+                </tr>
+                <tr>
+                    <td>10 Jul 2026</td>
+                    <td>Pix Recebido - Empresa XYZ (Salário)</td>
+                    <td><span class="categoria">Salário</span></td>
+                    <td class="text-right entrada">+ 4.200,00</td>
+                </tr> -->
+            </tbody>
+        </table>
+    </div>
+
+
+    <script src="script.js"></script>
+  </body>
+</html>

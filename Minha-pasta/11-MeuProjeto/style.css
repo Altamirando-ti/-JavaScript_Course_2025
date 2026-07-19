@@ -1,0 +1,120 @@
+/* Reset básico e fontes */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: #f4f6f9;
+            color: #333;
+            padding: 40px 20px;
+            display: flex;
+            justify-content: center;
+        }
+
+        /* Container do Extrato */
+        .extrato-container {
+            width: 100%;
+            max-width: 900px;
+            background-color: #ffffff;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+            padding: 24px;
+        }
+
+        /* Cabeçalho do Extrato */
+        .extrato-header {
+            margin-bottom: 24px;
+            border-bottom: 2px solid #edf2f7;
+            padding-bottom: 16px;
+        }
+
+        .extrato-header h1 {
+            font-size: 24px;
+            color: #1a202c;
+            margin-bottom: 4px;
+        }
+
+        .extrato-header p {
+            font-size: 14px;
+            color: #718096;
+        }
+
+        /* Estilização da Tabela */
+        .tabela-extrato {
+            width: 100%;
+            border-collapse: collapse;
+            text-align: left;
+        }
+
+        .tabela-extrato th {
+            background-color: #f7fafc;
+            color: #4a5568;
+            font-size: 13px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            padding: 14px 16px;
+            border-bottom: 2px solid #e2e8f0;
+        }
+
+        .tabela-extrato td {
+            padding: 14px 16px;
+            font-size: 15px;
+            border-bottom: 1px solid #edf2f7;
+            color: #2d3748;
+        }
+
+        /* Efeito de passar o mouse na linha */
+        .tabela-extrato tbody tr:hover {
+            background-color: #f8fafc;
+        }
+
+        /* Alinhamento de valores para a direita (boa prática financeira) */
+        .text-right {
+            text-align: right;
+        }
+
+        /* Classes para diferenciar Entrada e Saída */
+        /* .tabela-extrato td.entrada {
+            color: #00a86b;
+            font-weight: 600;
+        } */
+
+        .tabela-extrato td.entrada {
+            color: #047857 !important;           /* Verde escuro e legível */
+            background-color: #d1fae5;           /* Fundo verde claro para dar destaque */
+            font-weight: 700;
+            padding: 6px 12px;
+            border-radius: 5px;                 /* Cantos arredondados estilo pílula */
+            display: inline-block;               /* Mantém o tamanho ajustado ao texto */
+            margin-top: 8px;                     /* Ajuste de alinhamento visual */
+        }
+
+        /* .tabela-extrato td.saida {
+            color: #c53030;
+            font-weight: 600;
+        } */
+        
+        .tabela-extrato td.saida {
+            color: #b91c1c !important;
+            background-color: #fee2e2;
+            font-weight: 700;
+            padding: 6px 12px;
+            border-radius: 5px;
+            display: inline-block;
+            margin-top: 8px;
+        }
+
+        /* Badge/Etiqueta para as categorias */
+        .categoria {
+            display: inline-block;
+            padding: 4px 8px;
+            border-radius: 6px;
+            font-size: 12px;
+            font-weight: 500;
+            background-color: #edf2f7;
+            color: #4a5568;
+        }
