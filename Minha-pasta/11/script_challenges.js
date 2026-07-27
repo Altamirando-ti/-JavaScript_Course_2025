@@ -36,13 +36,14 @@ const juliaData = [3, 5, 2, 12, 7];
 const kateData = [4, 1, 15, 8, 3];
 
 const juliaDataCorrected = juliaData.slice()
+cl(juliaDataCorrected)
 juliaDataCorrected.splice(0,1)
 juliaDataCorrected.splice(-2)
 cl(juliaDataCorrected)
 
 // TEST DATA 2
-const juliaData = [9, 16, 6, 8, 3];
-const kateData = [10, 5, 6, 1, 4];
+const juliaData2 = [9, 16, 6, 8, 3];
+const kateData2 = [10, 5, 6, 1, 4];
 
 const checkDogs = function(arg1, arg2){
     cl("Julia's dogs")
@@ -64,3 +65,99 @@ cl('TEST DATA 1')
 checkDogs(juliaDataCorrected,kateData)
 cl('TEST DATA 2')
 checkDogs(juliaData2,kateData2)
+
+/* 
+Let's go back to Julia and Kate's study about dogs. This time, they want to convert dog ages to human ages and 
+calculate the average age of the dogs in their study.
+
+Create a function 'calcAverageHumanAge', which accepts an arrays of dog's ages ('ages'), and does the following 
+things in order:
+
+1. Calculate the dog age in human years using the following formula: if the dog is <= 2 years old, 
+humanAge = 2 * dogAge. If the dog is > 2 years old, humanAge = 16 + dogAge * 4.
+2. Exclude all dogs that are less than 18 human years old (which is the same as keeping dogs that are at least 18
+ years old)
+3. Calculate the average human age of all adult dogs (you should already know from other challenges how we 
+calculate averages 😉)
+4. Run the function for both test datasets
+
+TEST DATA 1: [5, 2, 4, 1, 15, 8, 3]
+TEST DATA 2: [16, 6, 10, 5, 6, 1, 4]
+
+GOOD LUCK 😀
+*/
+
+// ----------------- 161 - CHALLENGE 2 ------------------
+cl('----------------- 161 - CHALLENGE 2 ------------------')
+
+const testData1 = [5, 2, 4, 1, 15, 8, 3]
+const testData2 = [16, 6, 10, 5, 6, 1, 4]
+
+cl('TestData1')
+// 1. Calculate the dog age in human years using the following formula: if the dog is <= 2 years old, 
+// humanAge = 2 * dogAge. If the dog is > 2 years old, humanAge = 16 + dogAge * 4.
+const calcAverageHumanAge = arg =>{return arg.map( item => {
+    if(item <=2){return item*2} else{return 16 + item * 4}
+ })}
+cl(calcAverageHumanAge(testData1)) //[36, 4, 32, 2, 76, 48, 28]
+
+// 2. Exclude all dogs that are less than 18 human years old (which is the same as keeping dogs that are at least 18
+//  years old)
+const excludeLess18 = function(arg){
+    return calcAverageHumanAge(arg).filter(function(item){
+    return item >= 18
+    })
+}
+cl(excludeLess18(testData1))//[36, 32, 76, 48, 28]
+
+
+// 3. Calculate the average human age of all adult dogs (you should already know from other challenges how we 
+// calculate averages 😉)
+
+const averageAdultDogs = function(arg){
+    return  excludeLess18(arg)
+    .reduce((prev, item)=>{return prev + item},0) / excludeLess18(arg).length
+}
+
+// cl(averageAdultDogs(testData1))
+// cl(excludeLess18(testData1))
+cl(averageAdultDogs(testData1))
+
+// --- TestData2 ---
+cl('TestData2')
+cl(calcAverageHumanAge(testData2)) 
+cl(excludeLess18(testData2))//[36, 32, 76, 48, 28]
+cl(averageAdultDogs(testData2))
+
+// Testando coisas
+cl('Testando coisas')
+// const calcTeste = function(arg){
+//     const argMap = arg.map(function(item){
+//         return item*2
+//     })
+//     return argMap
+// }
+// cl(calcTeste(testData1))
+
+
+// Reescrevendo a função acima de outra maneira:
+
+// const calcTeste = function(arg){
+//     return arg.map(function(item){
+//         return item*2
+//     })
+// }
+// cl(calcTeste(testData1))
+
+
+// Reescrevendo a função acima de outra maneira:
+// const calcTeste = arg =>{ return arg.map( item => {return item*2})}
+// cl(calcTeste(testData1))
+
+
+// Reescrevendo a função acima de outra maneira:
+const calcTeste = arg => arg.map( item => item*2)
+
+cl(calcTeste(testData1))
+
+// cl(testData1.length)
