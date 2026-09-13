@@ -66,6 +66,9 @@ checkDogs(juliaDataCorrected,kateData)
 cl('TEST DATA 2')
 checkDogs(juliaData2,kateData2)
 
+///////////////////////////////////////
+// Coding Challenge #2
+
 /* 
 Let's go back to Julia and Kate's study about dogs. This time, they want to convert dog ages to human ages and 
 calculate the average age of the dogs in their study.
@@ -161,3 +164,32 @@ const calcTeste = arg => arg.map( item => item*2)
 cl(calcTeste(testData1))
 
 // cl(testData1.length)
+
+///////////////////////////////////////
+// Coding Challenge #3
+
+// ----------------- 163 - CHALLENGE 3 ------------------
+cl('----------------- 163 - CHALLENGE 3 ------------------')
+
+/* 
+Rewrite the 'calcAverageHumanAge' function from the previous challenge, but this time as an arrow function, 
+and using chaining!
+
+TEST DATA 1: [5, 2, 4, 1, 15, 8, 3]
+TEST DATA 2: [16, 6, 10, 5, 6, 1, 4]
+
+GOOD LUCK 😀
+*/
+
+const calcAverageHumanAge2 = arg =>{
+    return arg
+    .map( item => {
+    if(item <=2){return item*2} else{return 16 + item * 4}})
+    .filter(function(item){
+    return item >= 18
+    })
+    .reduce((prev, item, index, arr)=>{return prev + item / arr.length},0) 
+}
+
+cl(calcAverageHumanAge2(testData1))
+cl(calcAverageHumanAge2(testData2))

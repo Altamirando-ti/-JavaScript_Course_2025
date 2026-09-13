@@ -1,4 +1,5 @@
 'use strict';
+const cl = console.log;
 
 /////////////////////////////////////////////////
 /////////////////////////////////////////////////
@@ -88,7 +89,7 @@ const mostrarMovimentacao = function(arg){
   })
 }
 
-mostrarMovimentacao(account1.movements)
+// mostrarMovimentacao(account1.movements)
 // mostrarMovimentacao(account2.movements)
 
 
@@ -98,11 +99,18 @@ mostrarMovimentacao(account1.movements)
 // const labelBalance = document.querySelector('.balance__value');
 
 //Feito pelo instrutor
+// const mostrarBalanco  = function(arg){
+//   const calcBalance = movements.reduce((prev, cur)=> prev + cur,0)
+  
+//   labelBalance.textContent =`${calcBalance}€`
+// }
+
+// Alterado no: ----------- 166.Implementing Transfers ----------
 const mostrarBalanco  = function(arg){
-  const calcBalance = arg.reduce((prev, cur)=> prev + cur,0)
-  labelBalance.textContent =`${calcBalance}€`
+  arg.balance = arg.movements.reduce((prev, cur)=> prev + cur,0)
+  labelBalance.textContent =`${arg.balance}€`;
 }
-mostrarBalanco(account1.movements)
+// mostrarBalanco(account1.movements)
 // mostrarBalanco(account2.movements)
 
 
@@ -115,6 +123,127 @@ mostrarBalanco(account1.movements)
 //   labelBalance.insertAdjacentHTML('afterbegin',constHtml)
 // }
 // mostrarBalanco(account1.movements)
+
+// Chain Method // Ver -------- 162. The Magic of Chaining Methods --------
+
+// Seletor:
+// const labelSumIn = document.querySelector('.summary__value--in');
+
+// labelSumIn.textContent =`${'1200'}€`
+const calcDisplaySummary = function(acc){
+  const incomes = acc.movements
+  .filter(value => value >0)
+  .reduce((prev,value) => prev + value ,0)
+  labelSumIn.textContent =`${incomes}€`
+
+  const out = acc.movements
+  .filter(value => value <0)
+  .reduce((prev,value) => prev + value ,0)
+  labelSumOut.textContent =`${Math.abs(out)}€`
+
+  //Suponha que a cada depósito se ganhe 0.2% sobre o valor depositado
+  const interest = acc.movements
+  .filter(value => value > 0)
+  .map(value => value*acc.interestRate/100)
+  .reduce((prev,value) => prev + value ,0)
+  labelSumInterest.textContent =`${interest}€`
+}
+// calcDisplaySummary(account1.movements)
+// calcDisplaySummary(account1)
+
+
+// ------ 158 - Computing Usernames ------
+const createsUsernameAccounts = function(arg){
+  arg.forEach(function(acc,index){
+    acc.username = acc.owner.toLowerCase().split(' ').map(function(letra){
+    return letra[0]
+  }).join('')
+  // cl(acc.username)
+  })  
+}
+createsUsernameAccounts(accounts)
+// cl(accounts)
+
+const updateUI = function(acc){
+  // Display movements
+    mostrarMovimentacao(acc.movements)
+
+    // Display balance
+    mostrarBalanco(acc)
+    
+    // Display summary
+    calcDisplaySummary(acc)
+}
+
+// -------- 165. Implementing Login --------
+let currentAccount;
+btnLogin.addEventListener('click',function(e){
+  // cl('LOGIN')
+  // labelWelcome.textContent = 'Oi xuxu!' //Eu adicionei para testar o que acontece na página com o uso da função preventDefault()
+  // cl(e) // o evento 'e' se torna um objeto quando o usuario aciona o addEventListener
+  e.preventDefault()
+
+  currentAccount = accounts.find(arg => arg.username === inputLoginUsername.value)
+  cl(currentAccount)
+  if(currentAccount?.pin === Number(inputLoginPin.value)){
+    cl('LOGIN') // else{cl('Error Pin!')}
+  
+    // Display UI and message
+    containerApp.style.opacity = 1
+    labelWelcome.textContent = `Welcome ${currentAccount.owner.split(' ')[0]}`
+    
+    
+    // Clear input fields
+    inputLoginUsername.value = inputLoginPin.value = ''
+    // inputLoginPin.blur()// Não consegui visualizar a diferença com ou sem
+
+    // update UI
+    updateUI(currentAccount)
+    // substituindo os codigos a seguir
+
+    // // Display movements
+    // mostrarMovimentacao(currentAccount.movements)
+
+    // // Display balance
+    // // mostrarBalanco(currentAccount.movements)
+    // mostrarBalanco(currentAccount)
+    
+    // // Display summary
+    // calcDisplaySummary(currentAccount)
+    
+    
+
+  }
+  
+
+})
+
+// -------- 166. Implementing Transfers --------
+btnTransfer.addEventListener('click',function(e){
+  e.preventDefault();
+  const amount = Number(inputTransferAmount.value);
+  const receiverAcc = accounts.find(
+    acc => acc.username === inputTransferTo.value
+  );
+  cl(amount, receiverAcc)
+  
+  inputTransferAmount.value = inputTransferTo.value = ''; //para limpar o campo
+
+  if(amount > 0
+    && receiverAcc
+    && currentAccount.balance >= amount 
+    && receiverAcc?.username !== currentAccount.username){
+      // cl("Transfer Valid!");
+      //Transfering the money
+      currentAccount.movements.push(-amount);
+      receiverAcc.movements.push(amount)
+
+      // update UI
+    updateUI(currentAccount)
+    }
+  else{cl("Error!! Transfer Invalid.")}
+
+})
 
 
 /////////////////////////////////////////////////
@@ -131,7 +260,6 @@ const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
 
 /////////////////////////////////////////////////
 // ------ 151 - ForEach method ------
-const cl = console.log;
 cl('------ 151 - ForEach method ------')
 
 for(const movimentacao of movements){
@@ -268,3 +396,45 @@ const maximumValue = movements.reduce(function(prev, cur){
 }, movements[0]) //prev = primeiro valor do array
 cl(maximumValue)
 
+// -------- 162. The Magic of Chaining Methods --------
+cl('// -------- 162. The Magic of Chaining Methods --------')
+// Quero pegar apenas os depósitos, transformar para dollar (conversão atual: dollar = euro*0.87) e depois somar tudo.
+
+// const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
+
+const operacaoTotal = movements
+.filter(value => value > 0)
+.map((value, index, array) => {
+  cl(array) // para conferir se a operação filter anterior foi feita corretamente
+  return value*0.87
+})
+.reduce((prev,value,index,array)=>{
+  cl(array)
+  return prev + value
+},0)
+
+cl(operacaoTotal)
+
+// -------- 164. The find Method --------
+cl('-------- 164. The find Method --------')
+// const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
+const firtWithdrawal = movements.find(item => item < 0)
+cl(firtWithdrawal)
+
+// ATENÇÃO:
+// find method retorna o primeiro número do array que atende a condição
+// filter method retorna um novo array com todos os itens que atendem a condição
+
+// const accounts = [account1, account2, account3, account4];
+
+const findSomethingInObjects = accounts.find(item => item.owner === 'Jessica Davis')
+cl(findSomethingInObjects)
+
+
+// -------- 165. Implementing Login --------
+cl('-------- 165. Implementing Login --------')
+
+
+
+// -------- 166. Implementing Transfers --------
+cl('-------- 166. Implementing Transfers --------')
